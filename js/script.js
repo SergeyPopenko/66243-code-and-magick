@@ -4,13 +4,15 @@ var drawCustomShape = function (ctx, fillStyle, topLeftX, topLeftY, width, heigh
   ctx.fillStyle = fillStyle;
   ctx.beginPath();
   ctx.moveTo(topLeftX, topLeftY);
-  ctx.lineTo(topLeftX + width - 20, topLeftY);
-  // ctx.arcTo(topLeftX + width, topLeftY + height, topLeftX + width - 10, topLeftY + height, Math.SQRT2 * 10);
-  ctx.lineTo(topLeftX + width, topLeftY + 20);
+  ctx.lineTo(topLeftX + width - 10, topLeftY);
+  ctx.arcTo(topLeftX + width, topLeftY, topLeftX + width, topLeftY + 10, Math.SQRT2 * 10);
+  ctx.lineTo(topLeftX + width + 20, (topLeftY + height) / 2);
   ctx.lineTo(topLeftX + width, topLeftY + height - 10);
   ctx.arcTo(topLeftX + width, topLeftY + height, topLeftX + width - 10, topLeftY + height, Math.SQRT2 * 10);
+  ctx.lineTo(topLeftX + width / 2, topLeftY + height - 10);
   ctx.lineTo(topLeftX + 10, topLeftY + height);
   ctx.arcTo(topLeftX, topLeftY + height, topLeftX, topLeftY + height - 10, Math.SQRT2 * 10);
+  ctx.lineTo(topLeftX + 10, topLeftY + height / 2);
   ctx.closePath();
   ctx.fill();
 };
