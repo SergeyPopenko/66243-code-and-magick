@@ -12,7 +12,7 @@ var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К
       setup.classList.remove('hidden');
     },
 
-    createWizardArr = function () {
+    createWizardArd = function () {
       var wizardsQuantity = 4;
 
       for (var i = 0; i < wizardsQuantity; i++) {
@@ -33,7 +33,6 @@ var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К
 
     renderWizard = function (wizards) {
       var template = document.querySelector('#similar-wizard-template'),
-          similarList = document.querySelector('.setup-similar-list'),
           fragment = document.createDocumentFragment();
 
       for (var i = 0; i < wizards.length; i++) {
@@ -47,13 +46,21 @@ var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К
         fragment.appendChild(wizardElementContent);
       }
 
-      similarList.appendChild(fragment);
-      document.querySelector('.setup-similar').classList.remove('hidden');
-    }
+      return (fragment);
+    },
 
+    insertWizard = function (fragment) {
+      var similarList = document.querySelector('.setup-similar-list');
+
+      similarList.appendChild(fragment);
+    },
+
+    showSimilarWizards = function () {
+      document.querySelector('.setup-similar').classList.remove('hidden');
+    };
 
 
 showSetup ();
-createWizardArr ();
-renderWizard (createdWizards);
-
+createWizardArd ();
+insertWizard (renderWizard (createdWizards));
+showSimilarWizards();
